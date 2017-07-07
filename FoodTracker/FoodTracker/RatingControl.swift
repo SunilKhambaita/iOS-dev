@@ -68,6 +68,9 @@ import UIKit
             
             // Adding the button to the stack
             addArrangedSubview(button)
+            
+            // Adding the new button to the rating button array
+            ratingButtons.append(button)
         }
     }
 }
