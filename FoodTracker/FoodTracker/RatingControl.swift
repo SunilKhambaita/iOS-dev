@@ -44,6 +44,13 @@ import UIKit
     // MARK: Private Methods
     private func setUpButtons() {
         
+        // Loading button images
+        let bundle = Bundle(for: type(of: self))
+        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
+        let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
+        let highlightedStar = UIImage(named: "highlightedStar", in: bundle, compatibleWith: self.traitCollection)
+        
+        
         // Clearing any existing buttons first
         for button in ratingButtons {
             removeArrangedSubview(button)
@@ -56,7 +63,10 @@ import UIKit
             
             // Creating the button
             let button = UIButton()
-            button.backgroundColor = UIColor.blue
+            button.setImage(emptyStar, for: .normal)
+            button.setImage(filledStar, for: .selected)
+            button.setImage(highlightedStar, for: .highlighted)
+            button.setImage(highlightedStar, for: [.highlighted, .selected])
             
             // Creating button constraints
             button.translatesAutoresizingMaskIntoConstraints = false
