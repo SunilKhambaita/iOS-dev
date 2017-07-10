@@ -24,6 +24,12 @@ import UIKit
         }
     }
     
+    var rating = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
+    
     
     // MARK: Initialization
     override init(frame: CGRect) {
@@ -96,6 +102,16 @@ import UIKit
             
             // Adding the new button to the rating button array
             ratingButtons.append(button)
+        }
+        updateButtonSelectionStates()
+    }
+    
+    private func updateButtonSelectionStates() {
+        
+        for (index, button) in ratingButtons.enumerated() {
+            
+            // If the index of a button is less than the rating, that button should be selected.
+            button.isSelected = index < rating
         }
     }
 }
