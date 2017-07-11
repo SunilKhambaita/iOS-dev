@@ -31,15 +31,15 @@ class FoodTrackerTests: XCTestCase {
         
         // Negative rating test
         let negativeRatingMeal = Meal.init(name: "Negative", photo: nil, rating: -1)
-        XCTAssertNotNil(negativeRatingMeal)
+        XCTAssertNil(negativeRatingMeal)
         
         // Rating exceeds maximum test
         let largeRatingMeal = Meal.init(name: "Large", photo: nil, rating: 6)
-        XCTAssertNotNil(largeRatingMeal)
+        XCTAssertNil(largeRatingMeal)
         
         // Empty string test
         let emptyStringMeal = Meal.init(name: "", photo: nil, rating: 0)
-        XCTAssertNotNil(emptyStringMeal)
+        XCTAssertNil(emptyStringMeal)
         
     }
     
